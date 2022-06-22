@@ -2,27 +2,41 @@ import java.util.Scanner;
 
 public class Passport {
     Scanner sc = new Scanner(System.in);
-    private String number;
+    private String PassportSeries;
     private String name;
     private String surname;
-    private String date;
-//    private DateFormat start;
+    private String expiryDate;
 
-    public String getDate() {
-        return date;
+    public String getPassportSeries() {
+        return PassportSeries;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setPassportSeries(String passportSeries) {
+        PassportSeries = passportSeries;
     }
-//    private DateFormat end;
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSurname() {
         return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     public Passport() {
@@ -30,25 +44,19 @@ public class Passport {
         name = sc.next();
         System.out.println("Passport:enter the surname");
         surname = sc.next();
-        System.out.println("Passport:enter the date");
-        date = sc.next();
+        System.out.println("Passport:enter the Expiry date");
+        expiryDate = sc.next();
         System.out.println("Passport:enter the passport ID");
-        number = sc.next();
-//        this.number = number;
-//        this.name = name;
-//        this.surname = surname;
-//        this.date = date;
-//        this.start = start;
-//        this.end = end;
+        PassportSeries = sc.next();
     }
 
     @Override
     public String toString() {
         return "Passport{" +
-                "number='" + number + '\'' +
+                "PassportSeries='" + PassportSeries + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", date='" + date + '\'' +
+                ", expiryDate='" + expiryDate + '\'' +
                 '}';
     }
 }

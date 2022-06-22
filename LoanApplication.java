@@ -1,6 +1,8 @@
 public class LoanApplication {
     Customer customer;
     private int score;
+    LoanEnum loan;
+    private double sumOfLoan;
     public Customer getCustomer() {
         return customer;
     }
@@ -19,15 +21,13 @@ public class LoanApplication {
     public void setLoan(LoanEnum loan) {
         this.loan = loan;
     }
-    public int getSumOfLoan() {
+    public double getSumOfLoan() {
         return sumOfLoan;
     }
     public void setSumOfLoan(int sumOfLoan) {
         this.sumOfLoan = sumOfLoan;
     }
-    LoanEnum loan;
-    private int sumOfLoan;
-    public LoanApplication( int score, LoanEnum loan, int sumOfLoan) {
+    public LoanApplication(int score, LoanEnum loan, double sumOfLoan) {
         this.customer = customer;
         this.score = score;
         this.loan = loan;

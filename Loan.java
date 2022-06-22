@@ -1,15 +1,16 @@
 import java.text.DateFormat;
 
 public class Loan {
-    private int sumMoney;
+    private double sumMoney;
     private String loanPurpose;
     Schedule schedule;
 
-    public int getSumMoney() {
+
+    public double getSumMoney() {
         return sumMoney;
     }
 
-    public void setSumMoney(int sumMoney) {
+    public void setSumMoney(double sumMoney) {
         this.sumMoney = sumMoney;
     }
 

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Random;
 
 public class Manager {
@@ -8,7 +9,7 @@ public class Manager {
         this.desicionLlistener = desicionLlistener;
     }
 
-    public boolean committee(LoanApplication loanApplication) {
+    public boolean committee(LoanApplication loanApplication) throws IOException {
         Random random = new Random();
         if (loanApplication.getScore() < 550) {
 
@@ -22,5 +23,13 @@ public class Manager {
             desicionLlistener.diss();
         }
         return decision;
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "decision=" + decision +
+                ", desicionLlistener=" + desicionLlistener +
+                '}';
     }
 }

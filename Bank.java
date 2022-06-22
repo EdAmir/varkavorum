@@ -1,34 +1,57 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Bank implements DesicionLlistener {
     Scanner sc = new Scanner(System.in);
-    int amount ;
+    double amount ;
+    LoanEnum loanType = null;
     String loanPurpose;
+    Customer client = new Customer();
 
-    Schedule shedule = new Schedule("15/11/25");
-
-    String purpose = sc.next();
-    Loan loan1 = new Loan(LoanEnum.APARIK, purpose, shedule);
     List <Customer> customer = new ArrayList<>();
 
     @Override
-    public void diss() {
-        Customer customer1 = new Customer();
-        System.out.println("Your loan is");
+    public void diss() throws IOException {
+        System.out.println("DISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+
+        Schedule schedule = new Schedule(amount,loanType.percent, loanType.duration);
+
+        Loan loan1 = new Loan(LoanEnum.APARIK, loanPurpose, schedule);
+
+
+        System.out.println("Dear"+client.getName()+ "Your loan sum is "+ loan1.getSumMoney());
+        System.out.println(loan1);
         loan1.setSumMoney(amount);
-        customer1.loansList.add(loan1);
-        customer.add(customer1);
-        System.out.println(customer);
+        client.loansList.add(loan1);
+        customer.add(client);
+        System.out.println("Banki hachaxordneri mej avelacvel e ");
+        for (Customer cu :customer
+                ) {if( cu != null)
+            System.out.println(cu);
+        }
+
+
+        FileReader reader = new FileReader("C:\\Users\\eduard.amirjanyan\\Desktop\\Customers.xlsx");
+
+        FileWriter writer = new FileWriter("C:\\Users\\eduard.amirjanyan\\Desktop\\customers.txt");
+        writer.write(loan1.toString());
+        writer.close();
+
+        String text = reader.toString();
+        System.out.println(text);
     }
 
-    public void processes() {
+    public void processes() throws IOException {
         System.out.println("ENTER SUM OF LOAN");
         amount = sc.nextInt();
         System.out.println("what type of loan do you wont? ");
         int loanTypeID = sc.nextInt();
-        LoanEnum loanType = null;
+
         switch (loanTypeID) {
             case 1:
                 loanType = LoanEnum.APARIK;
@@ -43,19 +66,17 @@ public class Bank implements DesicionLlistener {
         System.out.println("Enter purpose of Loan ");
         loanPurpose = sc.nextLine();
 
-
-        ACRA acraScore = new ACRA();
-        Bank bank = new Bank();
-        LoanApplication loanApplication = new LoanApplication( acraScore.score(), loanType, amount);
-        Manager manager = new Manager();
-        manager.setDesicionLlistener(bank);
-        manager.committee(loanApplication);
-        if(manager.committee(loanApplication)){
-            System.out.println("Your loan is approved");  //diss();
-        } else {
-            System.out.println("Your loan is rejected");
-        }
     }
 
+    @Override
+    public String toString() {
+        return "Bank{" +
 
+                ", amount=" + amount +
+                ", loanType=" + loanType +
+                ", loanPurpose='" + loanPurpose + '\'' +
+                ", client=" + client +
+                ", customer=" + customer +
+                '}';
+    }
 }

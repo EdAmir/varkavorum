@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public interface DesicionLlistener {
-     void diss();
+     void diss() throws IOException;
 }

@@ -11,23 +11,52 @@ public class Customer {
     private String birthDate;
     private int salary;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
     public List<Loan> getLoansList() {
         return loansList;
     }
 
     public Customer() {
-        Passport passport = this.passport;
         System.out.println("Customer:enter the birth date");
         birthDate = sc.next();
         salary = rd.nextInt(65000, 5000000);
         System.out.println("Customer:the client's salary is " + salary);
-
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "sc=" + sc +
                 ", rd=" + rd +
                 ", loansList=" + loansList +
                 ", passport=" + passport +
