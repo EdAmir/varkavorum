@@ -16,12 +16,12 @@ public class Bank implements DesicionLlistener {
     List <Customer> customer = new ArrayList<>();
 
     @Override
-    public void diss() throws IOException {
+    public void logic() throws IOException {
         System.out.println("DISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
 
         Schedule schedule = new Schedule(amount,loanType.percent, loanType.duration);
 
-        Loan loan1 = new Loan(LoanEnum.APARIK, loanPurpose, schedule);
+        Loan loan1 = new Loan(loanType, loanPurpose, schedule);
 
 
         System.out.println("Dear"+client.getName()+ "Your loan sum is "+ loan1.getSumMoney());
@@ -36,19 +36,27 @@ public class Bank implements DesicionLlistener {
         }
 
 
-        FileReader reader = new FileReader("C:\\Users\\eduard.amirjanyan\\Desktop\\Customers.xlsx");
+        FileReader reader = new FileReader("C:\\Users\\eduard.amirjanyan\\Desktop\\Loans.txt");
 
-        FileWriter writer = new FileWriter("C:\\Users\\eduard.amirjanyan\\Desktop\\customers.txt");
-        writer.write(loan1.toString());
-        writer.close();
+        FileWriter writerCustomer = new FileWriter("C:\\Users\\eduard.amirjanyan\\Desktop\\customers.txt");
+        FileWriter writerLoans = new FileWriter("C:\\Users\\eduard.amirjanyan\\Desktop\\Loans.txt");
+        writerCustomer.append(loan1.toString());
+        writerCustomer.close();
+        writerLoans.append(client.toString());
+
+        writerLoans.close();
 
         String text = reader.toString();
         System.out.println(text);
     }
 
-    public void processes() throws IOException {
+    public void processes() throws  InterruptedException {
         System.out.println("ENTER SUM OF LOAN");
         amount = sc.nextInt();
+        System.out.println("Enter purpose of Loan ");
+
+        loanPurpose = sc.nextLine();
+        System.out.println(loanPurpose);
         System.out.println("what type of loan do you wont? ");
         int loanTypeID = sc.nextInt();
 
@@ -63,8 +71,6 @@ public class Bank implements DesicionLlistener {
                 loanType = LoanEnum.SPAROXAKAN;
                 break;
         }
-        System.out.println("Enter purpose of Loan ");
-        loanPurpose = sc.nextLine();
 
     }
 

@@ -1,5 +1,7 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Customer {
     Scanner sc = new Scanner(System.in);
@@ -57,7 +59,6 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                ", rd=" + rd +
                 ", loansList=" + loansList +
                 ", passport=" + passport +
                 ", name='" + name + '\'' +

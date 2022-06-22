@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Bank bank = new Bank();
         bank.processes();
         ACRA acraScore = new ACRA();
@@ -10,14 +10,11 @@ public class Main {
         manager.setDesicionLlistener(bank);
         manager.committee(loanApplication);
 
-        if (manager.committee(loanApplication)) {
+        if (manager.isStatus()) {
             System.out.println("Your loan is approved");
         } else {
             System.out.println("Your loan is rejected");
         }
-//        Schedule.printAmortizationSchedule(500000, 8.8, 5);
-
-
         /**
          *
          * BANK

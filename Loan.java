@@ -1,5 +1,3 @@
-import java.text.DateFormat;
-
 public class Loan {
     private double sumMoney;
     private String loanPurpose;

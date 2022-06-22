@@ -3,6 +3,12 @@ import java.util.Random;
 
 public class Manager {
     private boolean decision;
+    private boolean status;
+
+    public boolean isStatus() {
+        return status;
+    }
+
     DesicionLlistener desicionLlistener;
 
     public void setDesicionLlistener(DesicionLlistener desicionLlistener) {
@@ -14,15 +20,14 @@ public class Manager {
         if (loanApplication.getScore() < 550) {
 
             decision = random.nextBoolean();
-        }
-        else {
-            decision = true ; //random.nextBoolean();
+        } else {
+            decision = random.nextBoolean();
             System.out.println(decision);
         }
         if (desicionLlistener != null) {
-            desicionLlistener.diss();
+            desicionLlistener.logic();
         }
-        return decision;
+        return status = decision;
     }
 
     @Override

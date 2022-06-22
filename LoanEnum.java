@@ -1,5 +1,3 @@
-import java.text.DateFormat;
-
 public enum LoanEnum {
     APARIK(10,2,0.0),
     BUSSINESS(15,2,2.2),
