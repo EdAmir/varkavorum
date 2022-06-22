@@ -1,21 +1,8 @@
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-
-        Random rd = new Random();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("ENTER SUM OF LOAN");
-        int amount = sc.nextInt();
-        int scora = rd.nextInt(450, 850);
-
         Bank bank = new Bank();
-        bank.applyForLoan(bank.customer1, amount, "24", "guyqi gnum");
-        LoanApplication loanApplication = new LoanApplication(bank.customer1, scora, LoanEnum.APARIK, amount);
-        Manager manager = new Manager();
-        manager.setDesicionLlistener(bank);
-        manager.committee(loanApplication);
+        bank.processes();
+//        Schedule.printAmortizationSchedule(500000, 8.8, 5);
 
 
         /**

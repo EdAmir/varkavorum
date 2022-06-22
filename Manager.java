@@ -15,7 +15,7 @@ public class Manager {
             decision = random.nextBoolean();
         }
         else {
-            decision = true; //random.nextBoolean();
+            decision = true ; //random.nextBoolean();
             System.out.println(decision);
         }
         if (desicionLlistener != null) {

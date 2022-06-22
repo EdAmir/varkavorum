@@ -1,12 +1,10 @@
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Passport {
-    Scanner sc= new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     private String number;
-    private  String name;
-    private  String surname;
+    private String name;
+    private String surname;
     private String date;
 //    private DateFormat start;
 
@@ -28,14 +26,14 @@ public class Passport {
     }
 
     public Passport() {
-        System.out.println("enter the name");
-        name=sc.next();
-        System.out.println("enter the surname");
-        surname=sc.next();
-        System.out.println("enter the date");
-        date=sc.next();
-        System.out.println("enter the passport ID");
-        number=sc.next();
+        System.out.println("Passport:enter the name");
+        name = sc.next();
+        System.out.println("Passport:enter the surname");
+        surname = sc.next();
+        System.out.println("Passport:enter the date");
+        date = sc.next();
+        System.out.println("Passport:enter the passport ID");
+        number = sc.next();
 //        this.number = number;
 //        this.name = name;
 //        this.surname = surname;

@@ -27,7 +27,7 @@ public class LoanApplication {
     }
     LoanEnum loan;
     private int sumOfLoan;
-    public LoanApplication(Customer customer, int score, LoanEnum loan, int sumOfLoan) {
+    public LoanApplication( int score, LoanEnum loan, int sumOfLoan) {
         this.customer = customer;
         this.score = score;
         this.loan = loan;
