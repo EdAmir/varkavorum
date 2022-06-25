@@ -8,6 +8,8 @@ public class Loan {
         return sumMoney;
     }
 
+
+
     public void setSumMoney(double sumMoney) {
         this.sumMoney = sumMoney;
     }
@@ -38,10 +40,12 @@ public class Loan {
 
     LoanEnum loanEnum;
 
-    public Loan(LoanEnum loanEnum, String loanPurpose, Schedule date) {
+    public Loan(LoanEnum loanEnum, String loanPurpose, Schedule date, double sumMoney) {
         this.loanEnum = loanEnum;
         this.loanPurpose = loanPurpose;
         this.schedule = date;
+        this.sumMoney = sumMoney;
+
     }
 
     @Override

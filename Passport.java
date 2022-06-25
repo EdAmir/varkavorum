@@ -2,58 +2,61 @@ import java.util.Scanner;
 
 public class Passport {
     Scanner sc = new Scanner(System.in);
-    private String PassportSeries;
+    private String passportSeries;
     private String name;
     private String surname;
     private String expiryDate;
-
-    public String getPassportSeries() {
-        return PassportSeries;
+    private Passport(Builder builder) {
+        this.passportSeries = builder.passportSeries;
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.expiryDate = builder.expiryDate;
     }
 
-    public void setPassportSeries(String passportSeries) {
-        PassportSeries = passportSeries;
+    public String getPassportSeries() {
+        return passportSeries;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSurname() {
         return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getExpiryDate() {
         return expiryDate;
     }
 
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
+    public static class Builder{
+        private String passportSeries;
+        private String name;
+        private String surname;
+        private String expiryDate;
 
-    public Passport() {
-        System.out.println("Passport:enter the name");
-        name = sc.next();
-        System.out.println("Passport:enter the surname");
-        surname = sc.next();
-        System.out.println("Passport:enter the Expiry date");
-        expiryDate = sc.next();
-        System.out.println("Passport:enter the passport ID");
-        PassportSeries = sc.next();
+        Scanner sc = new Scanner(System.in);
+
+        public Builder() {
+            System.out.println("Passport:enter the name");
+            this.name = sc.next();
+            System.out.println("Passport:enter the surname");
+            this.surname = sc.next();
+            System.out.println("Passport:enter the passport ID");
+            this.passportSeries = sc.next();
+            System.out.println("Passport:enter the Expiry date");
+            this.expiryDate = sc.next();
+        }
+
+        public Passport build() {
+            return new Passport(this);
+        }
     }
 
     @Override
     public String toString() {
         return "Passport{" +
-                "PassportSeries='" + PassportSeries + '\'' +
+                "PassportSeries='" + passportSeries + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", expiryDate='" + expiryDate + '\'' +

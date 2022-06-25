@@ -5,6 +5,14 @@ public class Manager {
     private boolean decision;
     private boolean status;
 
+    public boolean isDecision() {
+        return decision;
+    }
+
+    public void setDecision(boolean decision) {
+        this.decision = decision;
+    }
+
     public boolean isStatus() {
         return status;
     }
